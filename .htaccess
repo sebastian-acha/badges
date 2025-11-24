@@ -1,0 +1,28 @@
+# Habilitar CORS
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
+
+# Reescritura de URLs para la API
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Redirigir index.php al root
+    RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+    RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,L]
+    
+    # API Routes
+    RewriteRule ^api/badges$ api/badges/index.php [L]
+    RewriteRule ^api/badges/create$ api/badges/create.php [L]
+    RewriteRule ^api/badges/issue$ api/badges/issue.php [L]
+    RewriteRule ^api/assertions/(.+)$ api/assertions/get.php?id=$1 [L]
+</IfModule>
+
+# Proteger archivos sensibles
+<Files "config.php">
+    Order allow,deny
+    Deny from all
+</Files>
