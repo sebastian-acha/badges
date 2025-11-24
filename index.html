@@ -274,6 +274,7 @@
         
         .badge-info {
             flex: 1;
+            min-width: 0; /* Importante para el text-overflow */
         }
         
         .badge-name {
@@ -441,7 +442,6 @@
             </button>
         </div>
 
-        <!-- Dashboard Tab -->
         <div id="dashboard" class="tab-content active">
             <div class="stats-grid">
                 <div class="stat-card purple">
@@ -490,7 +490,6 @@
             </div>
         </div>
 
-        <!-- Create Badge Tab -->
         <div id="create" class="tab-content">
             <div class="card" style="max-width: 600px; margin: 0 auto;">
                 <h3 class="card-title">Crear Nuevo Badge</h3>
@@ -516,7 +515,6 @@
             </div>
         </div>
 
-        <!-- Issue Badge Tab -->
         <div id="issue" class="tab-content">
             <div class="card" style="max-width: 600px; margin: 0 auto;">
                 <h3 class="card-title">Emitir Badge</h3>
@@ -544,7 +542,6 @@
             </div>
         </div>
 
-        <!-- API Tab -->
         <div id="api" class="tab-content">
             <div class="card" style="max-width: 900px; margin: 0 auto;">
                 <h3 class="card-title">Documentación de API</h3>
@@ -708,7 +705,10 @@ Authorization: Bearer TU_API_KEY
                 <div class="badge-item">
                     <img src="${badge.image}" alt="${badge.name}" class="badge-image">
                     <div class="badge-info">
-                        <div class="badge-name">${badge.name}</div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div class="badge-name">${badge.name}</div>
+                            <span style="font-size: 11px; background-color: #f3f4f6; padding: 2px 6px; border-radius: 4px; color: #6b7280; font-family: monospace;">ID: ${badge.id}</span>
+                        </div>
                         <div class="badge-desc">${badge.description.substring(0, 50)}${badge.description.length > 50 ? '...' : ''}</div>
                     </div>
                 </div>
@@ -732,6 +732,7 @@ Authorization: Bearer TU_API_KEY
                     <div class="badge-info">
                         <div class="badge-name">${r.recipientName}</div>
                         <div class="badge-desc">${r.badge.name}</div>
+                        <div style="font-size: 10px; color: #6b7280; font-family: monospace; margin-bottom: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${r.id}">ID: ${r.id}</div>
                         <div style="font-size: 12px; color: #9ca3af;">${new Date(r.issuedOn).toLocaleDateString('es-CL')}</div>
                     </div>
                 </div>
