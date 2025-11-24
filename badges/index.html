@@ -978,26 +978,26 @@ Authorization: Bearer ${apiKey || 'TU_API_KEY'}
                             objectFit: 'cover'
                           }} />
                           <div style={{ flex: 1 }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                              <p style={{
-                                fontWeight: '500',
-                                color: '#1f2937',
-                                marginBottom: '2px'
-                              }}>{badge.name}</p>
-                              <span style={{
-                                fontSize: '11px',
-                                backgroundColor: '#f3f4f6',
-                                padding: '2px 6px',
-                                borderRadius: '4px',
-                                color: '#6b7280',
-                                fontFamily: 'monospace'
-                              }}>ID: {badge.id}</span>
-                            </div>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <p style={{
-                              fontSize: '13px',
-                              color: '#6b7280'
-                            }}>{badge.description.substring(0, 50)}{badge.description.length > 50 ? '...' : ''}</p>
-                            </div>
+                              fontWeight: '500',
+                              color: '#1f2937',
+                              marginBottom: '2px'
+                            }}>{badge.name}</p>
+                            <span style={{
+                              fontSize: '11px',
+                              backgroundColor: '#f3f4f6',
+                              padding: '2px 6px',
+                              borderRadius: '4px',
+                              color: '#6b7280',
+                              fontFamily: 'monospace'
+                            }}>ID: {badge.id}</span>
+                          </div>
+                          <p style={{
+                            fontSize: '13px',
+                            color: '#6b7280'
+                          }}>{badge.description.substring(0, 50)}{badge.description.length > 50 ? '...' : ''}</p>
+                          </div>
                         </div>
                       ))}
                       {badges.length > 5 && (
