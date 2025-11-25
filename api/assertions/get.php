@@ -16,6 +16,8 @@ if (empty($assertionId)) {
     exit;
 }
 
+var_dump($_GET[]);
+die();
 $conn = getDBConnection();
 
 $stmt = $conn->prepare("
