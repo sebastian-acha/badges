@@ -1,0 +1,24 @@
+# --- Seguridad ---
+# Ignorar archivo de configuración con credenciales de BD
+config.php
+
+# --- Logs ---
+# Ignorar logs de errores de PHP (visto en tu carpeta api/badges)
+error_log
+*.log
+
+# --- Sistema Operativo ---
+# Archivos temporales de Mac y Windows
+.DS_Store
+Thumbs.db
+
+# --- Entorno de Desarrollo (Opcional) ---
+# Carpetas de configuración de editores de código
+.vscode/
+.idea/
+
+# ... tus otras reglas ...
+
+# Ignorar configuración del frontend
+badges/config.js
+config.js

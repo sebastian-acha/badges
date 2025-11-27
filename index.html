@@ -611,9 +611,16 @@ Authorization: Bearer TU_API_KEY
             </div>
         </div>
     </div>
-
+    <script src="config.js"></script>
     <script>
-        const API_BASE = 'https://badges.eduhive.cl/api';
+    if (!window.APP_CONFIG) {
+        window.APP_CONFIG = {
+            API_BASE: 'https://badges.eduhive.cl/api' // URL por defecto (Producción)
+        };
+    }
+</script>
+    <script>
+        const API_BASE = window.APP_CONFIG.API_BASE;    
         let badges = [];
         let recipients = [];
         let apiKey = localStorage.getItem('eduhive_api_key') || '';
