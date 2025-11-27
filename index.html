@@ -618,9 +618,10 @@ Authorization: Bearer TU_API_KEY
             API_BASE: 'https://badges.eduhive.cl/api' // URL por defecto (Producción)
         };
     }
-</script>
+    </script>
     <script>
-        const API_BASE = window.APP_CONFIG.API_BASE;    
+        const API_BASE = window.APP_CONFIG.API_BASE; 
+        console.log('Usando API_BASE:', API_BASE);   
         let badges = [];
         let recipients = [];
         let apiKey = localStorage.getItem('eduhive_api_key') || '';
@@ -678,7 +679,9 @@ Authorization: Bearer TU_API_KEY
 
         async function loadBadges() {
             try {
-                const response = await fetch(`${API_BASE}/badges/index.php`);
+                let ruta=API_BASE+"/badges"; 
+                console.log('Cargando badges desde:', ruta);
+                const response = await fetch(ruta);
                 const data = await response.json();
                 
                 if (data.success && data.badges) {
